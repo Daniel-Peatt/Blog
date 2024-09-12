@@ -1,0 +1,11 @@
+body{
+    background-color:#E9EFEC; 
+ }
+
+ #body-box{
+    width: 400px;  /* Adjust the width */
+    height: 200px;  /* Adjust the height */
+    font-size: 16px;  /* Adjust the font size */
+    padding: 10px;  /* Add padding for inner spacing */
+    box-sizing: border-box;  
+}

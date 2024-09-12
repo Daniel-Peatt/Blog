@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel's BLOG</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/index.css">
+</head>
+<body>
+    <%- include("partials/header.ejs") %>
+    <div class="container" >
+        <div class="row">
+            <div class="col text-center pt-5 pb-5">
+                <h1>Daniel's Blog</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2 c1">
+                <form action="/createPost" method="get">
+                    <input type="submit" id="createPost" class="command mt-1 btn btn-light" name="createPost" value="Create a Post">
+                </form>
+                <form action="/updatePost" method="get">
+                    <input type="submit" id="updatePost" class="command mt-1 btn btn-light" name="updatePost" value="Update a Post">
+                </form>
+                <form action="/deletePost" method="get">
+                    <input type="submit" id="deletePost" class="command mt-1 btn btn-light" name="deletePost" value="Delete a Post">
+                </form>
+            </div>
+            <div class="col-4 c2 pt-4">
+                <% if (locals.blogPost) { %>                    
+                    <% for(var i = 0; i < blogPost.length; i++) {%>
+                        <form action="/loadPost" method="post">
+                            <input type="hidden" name="postTitle"  value="<%= blogPost[i].title %>">
+                            <button type="submit" class="blog mb-1 btn btn-dark"><%= blogPost[i].title %></button>
+                        </form>
+                    <% } %>
+                     
+                <% } %>
+            </div>
+            <div class="col-6 c3">
+                <% if (locals.loadedPost) {%>              
+                    <h2><%= loadedPost.title %></h2>
+                    <p><%= loadedPost.content %></p>                   
+                <% } %>
+            </div>
+        </div>       
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+

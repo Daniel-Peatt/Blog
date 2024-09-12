@@ -1,0 +1,24 @@
+.command{
+    width: 10rem;
+    padding: 5px;
+    
+}
+
+body{
+    /* background-color:#E9EFEC !important;  */
+}
+
+.c1{
+    border: solid;
+    background-color:#16423C;
+    padding: 10px;
+}
+.c2{
+    border: solid;
+    background-color:#6A9C89;
+    padding: 20px;
+}
+.c3{
+    border: solid;
+    background-color: #C4DAD2;
+}
