@@ -1,5 +1,6 @@
 import express from "express";
 
+
 const port = 3000;
 const app = express();
 
@@ -11,6 +12,7 @@ app.use(express.static("public"));
 
 // Set up the view engine for rendering 
 app.set("view engine", "ejs");
+
 
 // Middleware to parse form data
 app.use(express.urlencoded({ extended: true }));
@@ -92,10 +94,16 @@ app.post("/delete", (req, res) => {
 
 // Creating a post
 app.post("/submitPost", (req, res) => {
+    // Used to stop duplicate titles 
+    if (blogPost.find(post => post.title === req.body.title))
+    {
+        const showPopup = true; // Set this conditionally based on your logic
+        return res.render("createPost.ejs", {blogPost, showPopup, message: 'Title already exist'});
+    }
     // adds the post to the blogPost array.
     blogPost.push({title: req.body.title, content: req.body.content});
     // renders the index with the updated blogPost
-    res.render("index.ejs", {blogPost});
+    return res.render("index.ejs", {blogPost});
 });
 
 // Home page redirections
