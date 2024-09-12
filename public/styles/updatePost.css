@@ -9,3 +9,7 @@ body{
     padding: 10px;  /* Add padding for inner spacing */
     box-sizing: border-box;  
 }
+
+.custom-font{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
