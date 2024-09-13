@@ -5,7 +5,7 @@
 }
 
 body{
-     background-color:#E9EFEC !important;  
+     background-image: url(/images/pattern_waves.png) !important;  
 }
 
 .c1{
@@ -32,4 +32,9 @@ h3{
 
 .custom-font{
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.blog-title{
+    border: solid;
+    background-color: #E9EFEC;
 }
